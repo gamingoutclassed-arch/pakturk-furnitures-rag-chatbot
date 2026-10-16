@@ -1,7 +1,7 @@
 'use client'
 
 import { FormEvent, useMemo, useState } from 'react'
-import { ArrowUpRight, Clock3, Mail, MapPin, MessageCircle, Phone, Send, Sparkles, Store, X } from 'lucide-react'
+import { ArrowUpRight, Clock3, Mail, MapPin, MessageCircle, Send, Sparkles } from 'lucide-react'
 
 const suggestedQuestions = [
   'What type of furniture do you sell?',
@@ -29,7 +29,10 @@ export default function Page() {
   const [showDetails, setShowDetails] = useState(false)
 
   const hasConversation = messages.length > 1
-  const visibleSuggestions = useMemo(() => hasConversation ? suggestedQuestions.slice(0, 4) : suggestedQuestions, [hasConversation])
+  const visibleSuggestions = useMemo(
+    () => (hasConversation ? suggestedQuestions.slice(0, 4) : suggestedQuestions),
+    [hasConversation]
+  )
 
   async function askQuestion(question: string) {
     const trimmed = question.trim()
@@ -102,7 +105,13 @@ export default function Page() {
               <div className="mb-8 lg:hidden"><p className="text-xs uppercase tracking-[0.22em] text-[#8b5e38]">Customer care</p><h1 className="mt-2 font-serif text-3xl">How can we help?</h1></div>
               <div className="flex-1 overflow-y-auto pr-1" aria-live="polite">
                 <div className="flex flex-col gap-5">
-                  {messages.map((message, index) => <div key={`${message.role}-${index}`} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}><div className={`max-w-[88%] rounded-2xl px-4 py-3 text-sm leading-6 sm:max-w-[75%] ${message.role === 'user' ? 'rounded-br-sm bg-[#8b5e38] text-white' : 'rounded-bl-sm border border-[#e8e0d7] bg-white text-[#40362f] shadow-[0_3px_14px_rgba(79,55,35,0.04)]'}`}>{message.content}</div></div>)}
+                  {messages.map((message, index) => (
+                    <div key={`${message.role}-${index}`} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                      <div className={`max-w-[88%] whitespace-pre-wrap break-words rounded-2xl px-4 py-3 text-sm leading-6 sm:max-w-[75%] ${message.role === 'user' ? 'rounded-br-sm bg-[#8b5e38] text-white' : 'rounded-bl-sm border border-[#e8e0d7] bg-white text-[#40362f] shadow-[0_3px_14px_rgba(79,55,35,0.04)]'}`}>
+                        {message.content}
+                      </div>
+                    </div>
+                  ))}
                   {isLoading && <div className="flex justify-start"><div className="flex items-center gap-1.5 rounded-2xl rounded-bl-sm border border-[#e8e0d7] bg-white px-5 py-4"><span className="size-1.5 animate-bounce rounded-full bg-[#b58a63] [animation-delay:-0.3s]" /><span className="size-1.5 animate-bounce rounded-full bg-[#b58a63] [animation-delay:-0.15s]" /><span className="size-1.5 animate-bounce rounded-full bg-[#b58a63]" /><span className="sr-only">Assistant is typing</span></div></div>}
                   {error && <div className="rounded-xl border border-[#d9a69d] bg-[#fdf0ed] px-4 py-3 text-sm text-[#8d4035]">{error}</div>}
                 </div>
