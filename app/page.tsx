@@ -76,7 +76,7 @@ export default function Page() {
 
   return (
     <main className="min-h-screen bg-[#f4efe9] text-[#2b211b] selection:bg-[#d8b994] selection:text-[#2b211b]">
-      <div className="mx-auto flex min-h-screen max-w-[1500px] flex-col overflow-hidden bg-[#fbfaf8] shadow-[0_0_80px_rgba(72,48,31,0.12)] lg:flex-row">
+      <div className="flex min-h-screen w-full flex-col overflow-hidden bg-[#fbfaf8] lg:flex-row">
         <aside className="relative hidden w-[39%] overflow-hidden bg-[#2a211b] px-12 py-10 text-[#f8f1e9] lg:flex lg:flex-col lg:justify-between xl:px-20 xl:py-12">
           <div className="absolute -right-28 top-20 size-96 rounded-full border border-[#c69a6c]/20" />
           <div className="absolute -right-12 top-36 size-64 rounded-full border border-[#c69a6c]/15" />
@@ -98,13 +98,13 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="relative z-10 grid grid-cols-2 gap-8 border-t border-white/15 pt-7 text-xs text-[#cdbbaa]">
-            <div>
-              <p className="mb-1 font-serif text-2xl text-[#f8f1e9]">100%</p>
-              <p>Solid wood furniture</p>
+          <div className="relative z-10 grid grid-cols-2 gap-6 border-t border-white/15 pt-7 text-xs text-[#cdbbaa]">
+            <div className="flex items-baseline gap-2">
+              <p className="font-serif text-2xl text-[#f8f1e9]">100%</p>
+              <p>solid wood</p>
             </div>
-            <div>
-              <p className="mb-1 font-serif text-2xl text-[#f8f1e9]">2</p>
+            <div className="flex items-baseline gap-2">
+              <p className="font-serif text-2xl text-[#f8f1e9]">2</p>
               <p>Islamabad showrooms</p>
             </div>
           </div>
