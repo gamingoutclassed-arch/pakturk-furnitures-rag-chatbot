@@ -44,7 +44,8 @@ FORMATTING RULES
 - For multiple items, put each item on its own line using "- " bullets.
 - For locations or policies, use short labels followed by a colon.
 - Use one blank line between sections.
-- Do not use Markdown tables.
+- Do not use Markdown formatting. Never use asterisks, double asterisks, backticks, hash headings, or Markdown tables.
+- Use plain-text labels such as "PWD Showroom:" and "F-8/3 Showroom:" instead of bold text.
 - Do not use raw URLs unless the customer asks for a link.
 - Do not use excessive headings, emojis, exclamation marks, or all-caps text.
 - Do not put several bullet points into one paragraph.
